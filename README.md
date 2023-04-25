@@ -14,5 +14,5 @@
 mkdir build && cd build
 cmake ..
 make
-./assembly_laboratories_6
+./assembly_laboratories_8
 ```
