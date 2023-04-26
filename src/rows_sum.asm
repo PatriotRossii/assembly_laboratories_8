@@ -1,9 +1,8 @@
 global RowsSum_
 
 RowsSum_:
-		; rdi = array, rsi = output
-		; rdx = rows, rcx = columns
-
+	; rdi = array, rsi = output
+	; rdx = rows, rcx = columns
         mov     eax, ecx
 
         ; Смещение, необходимое для перехода к следующей строке
@@ -14,7 +13,7 @@ RowsSum_:
         xor     r9d, r9d
         jmp     inner_loop
 outer_loop:
-		; Увеличение счетчика текущей строки
+	; Увеличение счетчика текущей строки
         inc     r9
         ; Переход к следующей строке
         add     rdi, r8
@@ -22,12 +21,12 @@ outer_loop:
         cmp     r9, rdx
         je      end
 inner_loop:
-		; Получение текущего значения
+	; Получение текущего значения
         mov     r10d, [rsi + 4*r9]
         ; Инициализация счетчика столбцов
         xor     r11d, r11d
 body:
-		; Обновление текущего значения
+	; Обновление текущего значения
         add     r10d, [rdi + 4*r11]
         ; Сохранение результата в выходном массиве
         mov     [rsi + 4*r9], r10d
